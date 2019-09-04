@@ -1,0 +1,145 @@
+---- Minecraft Crash Report ----
+// Don't do that.
+
+Time: 9/3/19 10:18 PM
+Description: Ticking block entity
+
+java.lang.ArrayIndexOutOfBoundsException: 2
+	at java.util.Arrays$ArrayList.set(Arrays.java:3846)
+	at net.minecraft.util.NonNullList.set(SourceFile:51)
+	at net.minecraft.inventory.InventoryBasic.func_70299_a(SourceFile:100)
+	at mods.railcraft.common.blocks.multi.TileBoilerFirebox.func_70299_a(TileBoilerFirebox.java:249)
+	at mods.railcraft.common.util.inventory.wrappers.InventoryMapper.func_70299_a(InventoryMapper.java:100)
+	at mods.railcraft.common.util.inventory.StandardInventoryIterator$InvSlot.setStack(StandardInventoryIterator.java:76)
+	at mods.railcraft.common.util.inventory.IExtInvSlot.clear(IExtInvSlot.java:36)
+	at mods.railcraft.common.util.inventory.InvTools$$Lambda$1901/1929331826.apply(Unknown Source)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:512)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:502)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at mods.railcraft.common.util.inventory.InvTools.spewInventory(InvTools.java:218)
+	at mods.railcraft.common.blocks.multi.TileMultiBlock.onPatternChanged(TileMultiBlock.java:98)
+	at mods.railcraft.common.blocks.multi.TileBoilerFirebox.onPatternChanged(TileBoilerFirebox.java:176)
+	at mods.railcraft.common.blocks.multi.TileMultiBlock.setPattern(TileMultiBlock.java:123)
+	at mods.railcraft.common.blocks.multi.TileMultiBlock.testIfMasterBlock(TileMultiBlock.java:198)
+	at mods.railcraft.common.blocks.multi.TileMultiBlock.func_73660_a(TileMultiBlock.java:153)
+	at mods.railcraft.common.blocks.multi.TileBoiler.func_73660_a(TileBoiler.java:207)
+	at mods.railcraft.common.blocks.multi.TileBoilerFirebox.func_73660_a(TileBoilerFirebox.java:148)
+	at net.minecraft.world.World.func_72939_s(World.java:1835)
+	at net.minecraft.world.WorldServer.func_72939_s(WorldServer.java:613)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:767)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.integrated.IntegratedServer.func_71217_p(IntegratedServer.java:185)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at java.util.Arrays$ArrayList.set(Arrays.java:3846)
+	at net.minecraft.util.NonNullList.set(SourceFile:51)
+	at net.minecraft.inventory.InventoryBasic.func_70299_a(SourceFile:100)
+	at mods.railcraft.common.blocks.multi.TileBoilerFirebox.func_70299_a(TileBoilerFirebox.java:249)
+	at mods.railcraft.common.util.inventory.wrappers.InventoryMapper.func_70299_a(InventoryMapper.java:100)
+	at mods.railcraft.common.util.inventory.StandardInventoryIterator$InvSlot.setStack(StandardInventoryIterator.java:76)
+	at mods.railcraft.common.util.inventory.IExtInvSlot.clear(IExtInvSlot.java:36)
+	at mods.railcraft.common.util.inventory.InvTools$$Lambda$1901/1929331826.apply(Unknown Source)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:512)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:502)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at mods.railcraft.common.util.inventory.InvTools.spewInventory(InvTools.java:218)
+	at mods.railcraft.common.blocks.multi.TileMultiBlock.onPatternChanged(TileMultiBlock.java:98)
+	at mods.railcraft.common.blocks.multi.TileBoilerFirebox.onPatternChanged(TileBoilerFirebox.java:176)
+	at mods.railcraft.common.blocks.multi.TileMultiBlock.setPattern(TileMultiBlock.java:123)
+	at mods.railcraft.common.blocks.multi.TileMultiBlock.testIfMasterBlock(TileMultiBlock.java:198)
+	at mods.railcraft.common.blocks.multi.TileMultiBlock.func_73660_a(TileMultiBlock.java:153)
+	at mods.railcraft.common.blocks.multi.TileBoiler.func_73660_a(TileBoiler.java:207)
+	at mods.railcraft.common.blocks.multi.TileBoilerFirebox.func_73660_a(TileBoilerFirebox.java:148)
+
+-- Block entity being ticked --
+Details:
+	Name: railcraft:boiler_firebox_fluid // mods.railcraft.common.blocks.multi.TileBoilerFireboxFluid
+	Block type: ID #621 (tile.railcraft.boiler.firebox.fluid // mods.railcraft.common.blocks.multi.BlockBoilerFireboxFluid // railcraft:boiler_firebox_fluid)
+	Block data value: 0 / 0x0 / 0b0000
+	Block location: World: (-254,68,242), Chunk: (at 2,4,2 in -16,15; contains blocks -256,0,240 to -241,255,255), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Actual block type: ID #621 (tile.railcraft.boiler.firebox.fluid // mods.railcraft.common.blocks.multi.BlockBoilerFireboxFluid // railcraft:boiler_firebox_fluid)
+	Actual block data value: 0 / 0x0 / 0b0000
+Stacktrace:
+	at net.minecraft.world.World.func_72939_s(World.java:1835)
+	at net.minecraft.world.WorldServer.func_72939_s(WorldServer.java:613)
+
+-- Affected level --
+Details:
+	Level name: New World
+	All players: 1 total; [EntityPlayerMP['dawnbraker2'/6881749, l='New World', x=-251.35, y=71.53, z=240.71]]
+	Chunk stats: ServerChunkCache: 307 Drop: 0
+	Level seed: 1171170143520940787
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options: 
+	Level spawn location: World: (-232,64,248), Chunk: (at 8,4,8 in -15,15; contains blocks -240,0,240 to -225,255,255), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 1048 game time, 1048 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 89440 (now: false), thunder time: 116696 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:767)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.integrated.IntegratedServer.func_71217_p(IntegratedServer.java:185)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:745)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.8.0_51, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 744137368 bytes (709 MB) / 2147483648 bytes (2048 MB) up to 2147483648 bytes (2048 MB)
+	JVM Flags: 8 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	IntCache: cache: 0, tcache: 0, allocated: 15, tallocated: 95
+	FML: MCP 9.42 Powered by Forge 14.23.5.2779 20 mods loaded, 20 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State          | ID                  | Version       | Source                                        | Signature                                |
+	|:-------------- |:------------------- |:------------- |:--------------------------------------------- |:---------------------------------------- |
+	| UCHIJAAAAAAAAA | minecraft           | 1.12.2        | minecraft.jar                                 | None                                     |
+	| UCHIJAAAAAAAAA | mcp                 | 9.42          | minecraft.jar                                 | None                                     |
+	| UCHIJAAAAAAAAA | FML                 | 8.0.99.99     | forge-1.12.2-14.23.5.2779.jar                 | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| UCHIJAAAAAAAAA | forge               | 14.23.5.2779  | forge-1.12.2-14.23.5.2779.jar                 | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| UCHIJAAAAAAAAA | buildcraftlib       | 7.99.24.2     | buildcraft-all-7.99.24.2.jar                  | None                                     |
+	| UCHIJAAAAAAAAA | buildcraftcore      | 7.99.24.2     | buildcraft-all-7.99.24.2.jar                  | None                                     |
+	| UCHIJAAAAAAAAA | buildcraftbuilders  | 7.99.24.2     | buildcraft-all-7.99.24.2.jar                  | None                                     |
+	| UCHIJAAAAAAAAA | buildcrafttransport | 7.99.24.2     | buildcraft-all-7.99.24.2.jar                  | None                                     |
+	| UCHIJAAAAAAAAA | buildcraftsilicon   | 7.99.24.2     | buildcraft-all-7.99.24.2.jar                  | None                                     |
+	| UCHIJAAAAAAAAA | buildcraftenergy    | 7.99.24.2     | buildcraft-all-7.99.24.2.jar                  | None                                     |
+	| UCHIJAAAAAAAAA | ic2                 | 2.8.187-ex112 | industrialcraft-2-2.8.187-ex112.jar           | de041f9f6187debbc77034a344134053277aa3b0 |
+	| UCHIJAAAAAAAAA | jei                 | 4.15.0.268    | jei_1.12.2-4.15.0.268.jar                     | None                                     |
+	| UCHIJAAAAAAAAA | forestry            | 5.8.1.322     | forestry_1.12.2-5.8.1.322.jar                 | None                                     |
+	| UCHIJAAAAAAAAA | buildcraftcompat    | 7.99.24.2     | buildcraft-all-7.99.24.2.jar                  | None                                     |
+	| UCHIJAAAAAAAAA | buildcraftfactory   | 7.99.24.2     | buildcraft-all-7.99.24.2.jar                  | None                                     |
+	| UCHIJAAAAAAAAA | buildcraftrobotics  | 7.99.24.2     | buildcraft-all-7.99.24.2.jar                  | None                                     |
+	| UCHIJAAAAAAAAA | codechickenlib      | 3.2.3.357     | CodeChickenLib-1.12.2-3.2.3.357-universal.jar | f1850c39b2516232a2108a7bd84d1cb5df93b261 |
+	| UCHIJAAAAAAAAA | nei                 | 2.4.3         | NotEnoughItems-1.12.2-2.4.3.245-universal.jar | f1850c39b2516232a2108a7bd84d1cb5df93b261 |
+	| UCHIJAAAAAAAAA | railcraft           | 12.0.0        | railcraft-12.0.0.jar                          | a0c255ac501b2749537d5824bb0f0588bf0320fa |
+	| UCHIJAAAAAAAAA | xaerominimap        | 1.17.7        | Xaeros-Minimap-Mod-1.12.2.jar                 | None                                     |
+
+	Loaded coremods (and transformers): 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 8; [EntityPlayerMP['dawnbraker2'/6881749, l='New World', x=-251.35, y=71.53, z=240.71]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
